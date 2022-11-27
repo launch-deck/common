@@ -4,7 +4,7 @@
     "description": "Common interfaces for building LaunchDeck Plugins",
     "types": "index.d.ts",
     "scripts": {
-        "postinstall": "npm-dts generate"
+        "prepublishOnly": "npm-dts generate"
     },
     "keywords": [],
     "author": {
