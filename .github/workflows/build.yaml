@@ -13,7 +13,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
       # Setup .npmrc file to publish to GitHub Packages
       - uses: actions/setup-node@v3
         with:
@@ -26,7 +26,11 @@ jobs:
           git config user.name 'ci'
           git config user.email 'ci@users.noreply.github.com'
       - run: npm version prerelease --preid=snapshot -m "Bumping snapshot version [skip ci]"
-      - run: git push
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref }}
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
