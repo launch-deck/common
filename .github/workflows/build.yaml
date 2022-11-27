@@ -20,6 +20,11 @@ jobs:
           # Defaults to the user or organization that owns the workflow file
           scope: '@launch-deck'
       - run: npm ci
+      - run: npm version prerelease --preid=snapshot -m "Bumping snapshot version [skip ci]"
+      - run: |
+          git config --global user.name 'ci'
+          git config --global user.email 'ci@users.noreply.github.com'
+          git push
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
