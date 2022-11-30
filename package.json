@@ -11,9 +11,6 @@
         "name": "David Hamilton",
         "email": "nova706@gmail.com"
     },
-    "publishConfig": {
-        "registry": "https://npm.pkg.github.com"
-    },
     "repository": {
         "type": "git",
         "url": "https://github.com/launch-deck/common.git"
