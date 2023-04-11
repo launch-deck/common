@@ -1,6 +1,6 @@
 {
     "name": "@launch-deck/common",
-    "version": "0.0.1-snapshot.2",
+    "version": "0.0.1-snapshot.3",
     "description": "Common interfaces for building LaunchDeck Plugins",
     "types": "index.d.ts",
     "scripts": {
